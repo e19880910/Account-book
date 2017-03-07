@@ -17,7 +17,7 @@
                         <th>@((i++).ToString())</th>
                         <th>@(AccountBook.Models.ViewModels.AccountTypeConverter.ToString(item.AccountType))</th>
                         <th>@(item.Date.ToString("yyyy-MM-dd"))</th>
-                        <th>@(item.Amount.ToString("c0"))</th>
+                        <th>@(item.Amount.ToString("#,0"))</th>
                     </tr>
 
                 }

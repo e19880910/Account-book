@@ -40,6 +40,13 @@ namespace AccountBook.Controllers
 			return View(accountRecordDataViewModel);
 		}
 
+		public ActionResult _InputItems()
+		{
+			AccountInputItemViewModels input = new AccountInputItemViewModels();
+			return View(input);
+		}
+		
+
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";
