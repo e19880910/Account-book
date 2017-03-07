@@ -37,6 +37,7 @@ namespace AccountBook.Models.ViewModels
 		/// </summary>
 		public string Memo { get; set; }
 		
+
 	}
 
 
@@ -45,6 +46,7 @@ namespace AccountBook.Models.ViewModels
 	/// </summary>
 	public enum AccountTypes
 	{
+		
 		/// <summary>
 		/// 收入
 		/// </summary>
@@ -56,5 +58,13 @@ namespace AccountBook.Models.ViewModels
 		Expense
 	}
 
+
+	public class AccountTypeConverter
+	{
+		public static string ToString(AccountTypes accountType)
+		{
+			return accountType == AccountTypes.Expense ? "支出" : "收入";
+		}
+	}
 
 }

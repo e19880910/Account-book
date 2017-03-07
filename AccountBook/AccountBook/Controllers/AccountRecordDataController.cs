@@ -10,25 +10,42 @@ namespace AccountBook.Controllers
     public class AccountRecordDataController : Controller
     {
         // GET: AccountRecordData
-        public ActionResult ShowData(AccountRecordDataViewModels accountRecordData)
+        public ActionResult AccountRecordData()
         {
-			accountRecordData = new AccountRecordDataViewModels()
-			{
-				AccountRecordData = new List<AccountInputItemViewModels>()
-				{
-					new AccountInputItemViewModels()
-					{
-						AccountType = AccountTypes.Expense,
-						Date = new DateTime(2016,1,1),
-						Amount = 300,
-						Memo = ""
+			//AccountRecordDataViewModels accountRecordData = new AccountRecordDataViewModels()
+			//{
+			//	AccountRecordData = new List<AccountInputItemViewModels>()
+			//	{
+			//		new AccountInputItemViewModels()
+			//		{
+			//			AccountType = AccountTypes.Expense,
+			//			Date = new DateTime(2016,1,1),
+			//			Amount = 300,
+			//			Memo = string.Empty
+			//		},
 
-					}
+			//		new AccountInputItemViewModels()
+			//		{
+			//			AccountType = AccountTypes.Expense,
+			//			Date = new DateTime(2016,1,2),
+			//			Amount = 1600,
+			//			Memo = string.Empty
+			//		},
 
-				}
-			};
+			//		new AccountInputItemViewModels()
+			//		{
+			//			AccountType = AccountTypes.Expense,
+			//			Date = new DateTime(2016,1,3),
+			//			Amount = 800,
+			//			Memo = string.Empty
+			//		}
 
-			return View();
+
+			//	}
+			//};
+
+			
+			return PartialView();
         }
 
 

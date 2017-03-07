@@ -1,4 +1,6 @@
-﻿@{
+﻿@model AccountBook.Models.ViewModels.AccountRecordDataViewModels
+
+@{
     ViewBag.Title = "我的記帳本";
 }
 
@@ -35,7 +37,7 @@
     </div>*@
 
 
-
+    @Html.Partial("_AccountRecordData", Model);
 
 
 

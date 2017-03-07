@@ -1,0 +1,30 @@
+﻿@model AccountBook.Models.ViewModels.AccountRecordDataViewModels
+
+
+<div class="form-horizontal">
+    <div class="form-group">
+            <table class="table table-bordered table-hover">
+                @{int i = 1; }
+                <tr>
+                    <th>#</th>
+                    <th>類別</th>
+                    <th>日期</th>
+                    <th>金額</th>
+                </tr>
+                @foreach (var item in Model.AccountRecordData)
+                {
+                    <tr>
+                        <th>@((i++).ToString())</th>
+                        <th>@(AccountBook.Models.ViewModels.AccountTypeConverter.ToString(item.AccountType))</th>
+                        <th>@(item.Date.ToString("yyyy-MM-dd"))</th>
+                        <th>@(item.Amount.ToString("c0"))</th>
+                    </tr>
+
+                }
+            </table>
+    </div>
+
+</div>
+
+
+
