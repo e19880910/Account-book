@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccountBook.Models.ConvertService;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -41,30 +42,9 @@ namespace AccountBook.Models.ViewModels
 	}
 
 
-	/// <summary>
-	/// 帳單類別
-	/// </summary>
-	public enum AccountTypes
-	{
-		
-		/// <summary>
-		/// 收入
-		/// </summary>
-		Income,
-
-		/// <summary>
-		/// 支出
-		/// </summary>
-		Expense
-	}
 
 
-	public class AccountTypeConverter
-	{
-		public static string ToString(AccountTypes accountType)
-		{
-			return accountType == AccountTypes.Expense ? "支出" : "收入";
-		}
-	}
+
+
 
 }

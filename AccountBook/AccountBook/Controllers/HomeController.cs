@@ -1,4 +1,5 @@
-﻿using AccountBook.Models.ViewModels;
+﻿using AccountBook.Models.ConvertService;
+using AccountBook.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,17 +34,14 @@ namespace AccountBook.Controllers
 			list.Add(accountInputItem1);
 			list.Add(accountInputItem2);
 			list.Add(accountInputItem3);
-
-			AccountRecordDataViewModels accountRecordDataViewModel = new AccountRecordDataViewModels();
-			accountRecordDataViewModel.AccountRecordData = list;
-
-			return View(accountRecordDataViewModel);
+			
+			return View(list);
 		}
 
-		public ActionResult _InputItems()
+		public ActionResult InputItems()
 		{
 			AccountInputItemViewModels input = new AccountInputItemViewModels();
-			return View(input);
+			return PartialView(input);
 		}
 		
 

@@ -1,22 +1,15 @@
-﻿@*@model AccountBook.Models.ViewModels.AccountRecordDataViewModels*@
-
+﻿
 @{
     ViewBag.Title = "我的記帳本";
 }
 
 <div class="jumbotron">
-  
-  
-    @Html.Action("_InputItems")
 
+    @Html.Action("InputItems")
 
 </div>
-
 <div class="row">
-  
-  
+
     @Html.Partial("_AccountRecordData")
-
-
 
 </div>
