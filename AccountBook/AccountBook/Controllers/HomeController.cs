@@ -12,25 +12,31 @@ namespace AccountBook.Controllers
 	{
 		public ActionResult Index()
 		{
-			AccountInputItemViewModels accountInputItem1 = new AccountInputItemViewModels();
-			accountInputItem1.AccountType = AccountTypes.Expense;
-			accountInputItem1.Date = new DateTime(2016,1,1);
-			accountInputItem1.Amount = 300;
-			accountInputItem1.Memo = string.Empty;
+			var accountInputItem1 = new AccountInputItemViewModels()
+			{
+				AccountType = AccountTypes.Expense,
+				Date = new DateTime(2016, 1, 1),
+				Amount = 300,
+				Memo = string.Empty
+			};
 
-			AccountInputItemViewModels accountInputItem2 = new AccountInputItemViewModels();
-			accountInputItem2.AccountType = AccountTypes.Expense;
-			accountInputItem2.Date = new DateTime(2016, 1, 2);
-			accountInputItem2.Amount = 1600;
-			accountInputItem2.Memo = string.Empty;
+			var accountInputItem2 = new AccountInputItemViewModels()
+			{
+				AccountType = AccountTypes.Expense,
+				Date = new DateTime(2016, 1, 2),
+				Amount = 1600,
+				Memo = string.Empty
+			};
 
-			AccountInputItemViewModels accountInputItem3 = new AccountInputItemViewModels();
-			accountInputItem3.AccountType = AccountTypes.Expense;
-			accountInputItem3.Date = new DateTime(2016, 1, 3);
-			accountInputItem3.Amount = 800;
-			accountInputItem3.Memo = string.Empty;
+			var accountInputItem3 = new AccountInputItemViewModels()
+			{
+				AccountType = AccountTypes.Expense,
+				Date = new DateTime(2016, 1, 3),
+				Amount = 800,
+				Memo = string.Empty
+			};
 
-			List<AccountInputItemViewModels> list = new List<AccountInputItemViewModels>();
+			var list = new List<AccountInputItemViewModels>();
 			list.Add(accountInputItem1);
 			list.Add(accountInputItem2);
 			list.Add(accountInputItem3);
