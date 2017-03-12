@@ -14,19 +14,17 @@ namespace AccountBook.Controllers
 		{
 
 			AccountBookEntity db = new AccountBookEntity();
-			var list = new List<AccountInputItemViewModels>();
-			foreach(var item in db.AccountBook.ToList())
+
+			var query = db.AccountBook.Select(s => 
+			new AccountInputItemViewModels()
 			{
-				list.Add(new AccountInputItemViewModels()
-				{
-					AccountType = (AccountTypes)item.Categoryyy,
-					Amount = item.Amounttt,
-					Date = item.Dateee,
-					Memo = item.Remarkkk
-				});
-			} 
+				AccountType = (AccountTypes)s.Categoryyy,
+				Amount = s.Amounttt,
+				Date = s.Dateee,
+				Memo = s.Remarkkk
+			});
 			
-			return View(list);
+			return View(query.ToList());
 		}
 
 		public ActionResult InputItems()
