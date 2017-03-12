@@ -12,34 +12,19 @@ namespace AccountBook.Controllers
 	{
 		public ActionResult Index()
 		{
-			var accountInputItem1 = new AccountInputItemViewModels()
-			{
-				AccountType = AccountTypes.Expense,
-				Date = new DateTime(2016, 1, 1),
-				Amount = 300,
-				Memo = string.Empty
-			};
 
-			var accountInputItem2 = new AccountInputItemViewModels()
-			{
-				AccountType = AccountTypes.Expense,
-				Date = new DateTime(2016, 1, 2),
-				Amount = 1600,
-				Memo = string.Empty
-			};
-
-			var accountInputItem3 = new AccountInputItemViewModels()
-			{
-				AccountType = AccountTypes.Expense,
-				Date = new DateTime(2016, 1, 3),
-				Amount = 800,
-				Memo = string.Empty
-			};
-
+			AccountBookEntity db = new AccountBookEntity();
 			var list = new List<AccountInputItemViewModels>();
-			list.Add(accountInputItem1);
-			list.Add(accountInputItem2);
-			list.Add(accountInputItem3);
+			foreach(var item in db.AccountBook.ToList())
+			{
+				list.Add(new AccountInputItemViewModels()
+				{
+					AccountType = (AccountTypes)item.Categoryyy,
+					Amount = item.Amounttt,
+					Date = item.Dateee,
+					Memo = item.Remarkkk
+				});
+			} 
 			
 			return View(list);
 		}

@@ -37,14 +37,6 @@ namespace AccountBook.Models.ViewModels
 		/// 帳單備註
 		/// </summary>
 		public string Memo { get; set; }
-		
-
 	}
-
-
-
-
-
-
-
+	
 }
