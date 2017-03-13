@@ -1,6 +1,7 @@
 ﻿using AccountBook.Models.ConvertService;
 using AccountBook.Models.DbService;
 using AccountBook.Models.ViewModels;
+using ServiceLab.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +14,14 @@ namespace AccountBook.Controllers
 	{
 		public ActionResult Index()
 		{
-			var db = new AccountBookDbService();
+			var unitOfWork = new EFUnitOfWork();
+			var db = new AccountBookDbService(unitOfWork);
 			return View(db.GetAll());
 		}
 
 		public ActionResult InputItems()
 		{
-			AccountInputItemViewModels input = new AccountInputItemViewModels();
+			var input = new AccountInputItemViewModels();
 			return PartialView(input);
 		}
 		

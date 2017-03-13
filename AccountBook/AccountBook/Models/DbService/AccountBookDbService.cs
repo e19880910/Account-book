@@ -1,5 +1,6 @@
 ﻿using AccountBook.Models.ConvertService;
 using AccountBook.Models.ViewModels;
+using ServiceLab.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,13 @@ namespace AccountBook.Models.DbService
 	public class AccountBookDbService
 	{
 		AccountBookEntity _db;
+		IUnitOfWork _unitOfWork;
 
-		public AccountBookDbService()
+
+		public AccountBookDbService(IUnitOfWork unitOfWork)
 		{
 			_db = new AccountBookEntity();
+			_unitOfWork = unitOfWork;
 		}
 
 		public List<AccountInputItemViewModels> GetAll()
@@ -30,7 +34,12 @@ namespace AccountBook.Models.DbService
 			return query.ToList() ;
 		}
 
-		
+
+
+		public void Save()
+		{
+			_unitOfWork.Save();
+		}
 
 	}
 }
