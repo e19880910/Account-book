@@ -1,4 +1,5 @@
 ﻿using AccountBook.Models.ConvertService;
+using AccountBook.Models.DbService;
 using AccountBook.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,19 +13,8 @@ namespace AccountBook.Controllers
 	{
 		public ActionResult Index()
 		{
-
-			AccountBookEntity db = new AccountBookEntity();
-
-			var query = db.AccountBook.Select(s => 
-			new AccountInputItemViewModels()
-			{
-				AccountType = (AccountTypes)s.Categoryyy,
-				Amount = s.Amounttt,
-				Date = s.Dateee,
-				Memo = s.Remarkkk
-			});
-			
-			return View(query.ToList());
+			var db = new AccountBookDbService();
+			return View(db.GetAll());
 		}
 
 		public ActionResult InputItems()
