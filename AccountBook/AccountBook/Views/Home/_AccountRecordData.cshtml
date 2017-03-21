@@ -16,7 +16,15 @@
                 {
                     <tr>
                         <th>@(++i)</th>
-                        <th>@(AccountBook.Models.ConvertService.AccountTypeConverter.ToString(item.AccountType))</th>
+                        <th>@if(item.AccountType == AccountBook.Models.ConvertService.AccountTypes.Income)
+                        {
+                            <span style="color:blue">@(AccountBook.Models.ConvertService.AccountTypeConverter.ToString(item.AccountType)) </span>
+}
+                        else if (item.AccountType == AccountBook.Models.ConvertService.AccountTypes.Expense)
+                        {
+                            <span style="color:red">@(AccountBook.Models.ConvertService.AccountTypeConverter.ToString(item.AccountType)) </span>
+}
+                        </th>
                         <th>@(item.Date.ToString("yyyy-MM-dd"))</th>
                         <th>@(item.Amount.ToString("#,###"))</th>
                     </tr>
