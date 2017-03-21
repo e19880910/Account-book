@@ -5,37 +5,35 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace AccountBook.Models.ViewModels
 {
 	public class AccountInputItemViewModels
 	{
-
-		[DisplayName("類別")]
-		/// <summary>
-		/// 帳單類別
-		/// </summary>
+		
+		[Required]
+		[Display(Name ="類別")]
 		public AccountTypes AccountType { get; set; }
 
-
-		[DisplayName("金額")]
-		/// <summary>
-		/// 帳單金額
-		/// </summary>
+		
+		
+		[DataType(DataType.Currency)]
+		[Required(ErrorMessage ="必須輸入金額")]
+		[Display(Name ="金額")]
 		public decimal Amount { get; set; }
 
+
 	
-		[DisplayName("日期")]
-		/// <summary>
-		/// 帳單日期
-		/// </summary>
+		
+		[Required(ErrorMessage = "必須輸入日期")]
+		[Display(Name="日期")]
 		public DateTime Date { get; set; }
 
 
-		[DisplayName("備註")]
-		/// <summary>
-		/// 帳單備註
-		/// </summary>
+		[MaxLength(1000)]
+		[Required(ErrorMessage ="必須輸入備註")]
+		[Display(Name="備註")]
 		public string Memo { get; set; }
 	}
 	

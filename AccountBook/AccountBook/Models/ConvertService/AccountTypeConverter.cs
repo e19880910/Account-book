@@ -1,4 +1,6 @@
-﻿namespace AccountBook.Models.ConvertService
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AccountBook.Models.ConvertService
 {
 	public class AccountTypeConverter
 	{
@@ -13,11 +15,13 @@
 	/// </summary>
 	public enum AccountTypes
 	{
+		[Display(Name = "收入")]
 		/// <summary>
 		/// 收入
 		/// </summary>
 		Income,
 
+		[Display(Name ="支出")]
 		/// <summary>
 		/// 支出
 		/// </summary>

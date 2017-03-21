@@ -24,7 +24,7 @@ namespace AccountBook.Controllers
 			var input = new AccountInputItemViewModels();
 			return PartialView(input);
 		}
-		
+
 
 		public ActionResult About()
 		{
@@ -39,5 +39,30 @@ namespace AccountBook.Controllers
 
 			return View();
 		}
+
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult InputItems(AccountTypes accountType, decimal amount, string date, string memo)
+		{
+			DateTime d;
+			DateTime.TryParse(date, out d);
+
+			var item = new AccountInputItemViewModels();
+			item.AccountType = accountType;
+			item.Amount = amount;
+			item.Date = d;
+			item.Memo = memo;
+
+			var unitOfWork = new EFUnitOfWork();
+			var db = new AccountBookDbService(unitOfWork);
+
+			db.AddItem(item);
+			db.Save();
+			
+			return PartialView(item);
+		}
+
+
 	}
 }

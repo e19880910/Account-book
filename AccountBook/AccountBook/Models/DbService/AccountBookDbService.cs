@@ -30,10 +30,22 @@ namespace AccountBook.Models.DbService
 				Date = s.Dateee,
 				Memo = s.Remarkkk
 			});
-			
-			return query.ToList() ;
+
+			return query.ToList();
 		}
 
+		public void AddItem(AccountInputItemViewModels item)
+		{
+			AccountBookData data = new AccountBookData();
+			data.Amounttt = Convert.ToInt32(item.Amount);
+			data.Categoryyy = (int)item.AccountType;
+			data.Dateee = item.Date;
+			data.Remarkkk = item.Memo;
+			data.Id = Guid.NewGuid();
+
+			_db.AccountBook.Add(data);
+			_db.SaveChanges();
+		}
 
 
 		public void Save()
